@@ -8,7 +8,7 @@ module MCQuery
 
     def initialize(opts = {})
       # Merge in the default options
-      opts.merge!({:ip => 'localhost', :port => '25565'})
+      opts = {:ip => 'localhost', :port => '25565'}.merge(opts)
 
       @ip = opts[:ip]
       @port = opts[:port]
