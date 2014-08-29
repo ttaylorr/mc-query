@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = MCQuery::VERSION
   spec.authors       = ["Taylor Blau"]
   spec.email         = ["me@ttaylorr.com"]
-  spec.summary       = %q{TODO: Ruby bindings to query Minecraft servers based on the RCON protocol.}
+  spec.summary       = %q{Ruby bindings to query Minecraft servers based on the RCON protocol.}
   spec.homepage      = "http://mc.ttaylorr.com"
   spec.license       = "MIT"
 
