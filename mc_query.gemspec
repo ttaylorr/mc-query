@@ -5,7 +5,7 @@ require 'mc_query/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "mc_query"
-  spec.version       = McQuery::VERSION
+  spec.version       = MCQuery::VERSION
   spec.authors       = ["Taylor Blau"]
   spec.email         = ["me@ttaylorr.com"]
   spec.summary       = %q{TODO: Ruby bindings to query Minecraft servers based on the RCON protocol.}
