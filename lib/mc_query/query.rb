@@ -8,10 +8,11 @@ module MCQuery
 
     def initialize(opts = {})
       # Merge in the default options
-      opts = {:ip => 'localhost', :port => '25565'}.merge(opts)
+      opts = {:ip => 'localhost', :port => '25565', :timeout => 8}.merge(opts)
 
       @ip = opts[:ip]
       @port = opts[:port]
+      @timeout = opts[:timeout]
 
       # Connect to the server socket (based on the options)
       @socket = UDPSocket.new
@@ -41,7 +42,7 @@ module MCQuery
       # Store off the challenge key (we'll need this for querying)
       @challenge = get_challenge_key
 
-      timeout 1 do
+      timeout @timeout do
         query = @socket.send(encode_data("#{@@REQUEST}#{@session_id}") + @challenge.to_s, 0)
         buffer = recieve_data
         parsed = buffer.split("\0", 6)
@@ -58,7 +59,7 @@ module MCQuery
     end
 
     def get_challenge_key
-      timeout 1 do
+      timeout @timeout do
         # Send the magic bytes, the handshake bytes, and the session id
         send_data("#{@@HANDSHAKE}#{@session_id}")
 
